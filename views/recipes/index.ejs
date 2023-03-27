@@ -5,7 +5,8 @@
     <tr>
       <th>Title</th>
       <th>Cook Time</th>
-      <th>Gluten Free?</th>
+      <th>GF</th>
+      <th>Date</th>
       <th></th>
     </tr>
   </thead>
@@ -13,9 +14,10 @@
     <% recipes.forEach(function(r) { %>
       <tr>
         <td><%= r.title %></td>
-        <td><%= r.cookTime %></td>
+        <td>(hrs): <%= r.hours %> (mins): <%= r.mins %></td>
         <td><%= r.glutenFree %></td>
-        <td><a href="/recipes/<%= r._id %>">Critiques</a></td>
+        <td><%= r.date.toLocaleDateString() %></td>
+        <td><a href="/recipes/<%= r._id %>">Details</a></td>
       </tr>
       <% }); %>
     </tbody>

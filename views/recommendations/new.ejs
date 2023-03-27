@@ -1,0 +1,30 @@
+<%- include('../partials/header') %>
+<h1>Your Recommendation</h1>
+
+
+<form id="new-form" action="/recipes" method="POST">
+  
+  <label>Submitted by: <%= recipe.userId %></label>
+
+  <label>Ingredients: </label><br>
+  <textarea type="text" name="newIngred" placeholder="Ingredients" cols="30" rows="5"></textarea><br>
+
+  <label>Instructions:</label><br>
+  <textarea type="text" name="newInstruct" placeholder="Instructions" cols="30" rows="5"></textarea><br>
+
+  <label>Cook Time</label><br>
+  <label>Hours: </label>
+  <input type="number" min="0" max="500" name="Newhours">
+  <label>Mins: </label>
+  <input type="number" min="1" max="500" name="newMins"><br>
+
+  <label>Gluten-Free: </label>
+  <label for="true">(T)</label>
+  <input value=true type="radio" name="isGF">
+  <label for="false">(F)</label>
+  <input value=false type="radio" name="isGF"><br>
+
+  <input type="submit" value="Submit">
+</form>
+
+<%- include('../partials/footer') %>

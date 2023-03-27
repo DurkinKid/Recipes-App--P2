@@ -1,6 +1,7 @@
 const RecommendationModel = require('../models/recipe');
 
 module.exports = {
+    new: newRec,
     create
 }
 
@@ -19,4 +20,8 @@ function create(req, res){
             console.log(err);
             res.send(err)
         })
+}
+
+function newRec(req, res){
+    res.render('recommendations/new')
 }

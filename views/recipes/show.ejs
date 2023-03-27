@@ -4,15 +4,12 @@
     <section>
         <div>Title: <%= recipe.title %></div>
         <div>Ingredients: <%= recipe.ingredients %></div>
-        <div>Instruction: <%= recipe.instructions %></div>
-        <div>Cook Time: <%= recipe.cookTime %></div>
-        <div>Is Glute Free?: <%= recipe.glutenFree ? 'Yes' : 'No' %></div>
+        <div>Instructions: <%= recipe.instructions %></div>
+        <div>Cook Time: (hrs): <%= recipe.hours %> (mins): <%= recipe.mins %></div>
+        <div>Is Gluten Free: <%= recipe.glutenFree ? 'Yes' : 'No' %></div>
     </section>
 
-    <h2>Share Recommendations</h2>
-    <form method="POST" action="/recipes/<%= recipe._id %>/recommendations">
-        <label for=""></label>
-    </form>
+<a href="/recommendations/new">Add a recommendation</a>
 
 
 

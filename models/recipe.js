@@ -5,21 +5,24 @@ const recommendationSchema = new mongoose.Schema({
       userName: String,
       newIngred: String,
       newInstruct: String,
-      newCookTime: {
-        type :Number,
-        min: [0],
-        max: [999]
-      },
-      recDate: {
+      newHours: { 
         type: Number,
-        default: function () {
-            return new Date().getFullYear()
-        }}
-    },
+        min: 0,
+        max: 500
+      },
+      newMins: {
+        type: Number,
+        min: 1,
+        max: 500
+      },
+      isGF: Boolean,
+      recDate: {
+        type: Date,
+        default: new Date().setFullYear(new Date().getFullYear() + 1)
+    }},
     {
-      timestamps: true,
-    }
-  );
+      timestamps: true
+    });
 
 
 const recipeSchema = new mongoose.Schema({
@@ -31,21 +34,27 @@ const recipeSchema = new mongoose.Schema({
         required: true,
     },
     recommendations: [recommendationSchema], // One Movie HAS MANY reviews, Using embedding in Mongoose
-        ingredients: String,
-        instructions: String,
+    ingredients: String,
+    instructions: String,
       // ref 'Performer' comes from the name of the Performer model
       //  mongoose.model('Performer', performerSchema); <-- "Performer" is the name of the model
       // in mongodb the Performer becomes performers
       
       // referencing. 
-    cookTime: { 
+    hours: { 
         type: Number,
-        min: [0],
-        max: [999]
+        min: 0,
+        max: 500
+      },
+    mins: {
+        type: Number,
+        min: 1,
+        max: 500
     },
-    glutenFree: {
-        type: Boolean,
-        default: false
+    glutenFree: Boolean,
+    date: {
+        type: Date,
+        default: new Date().setFullYear(new Date().getFullYear() + 1)
     }
 },
     {
