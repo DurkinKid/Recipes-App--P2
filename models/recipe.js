@@ -18,13 +18,12 @@ const recipeSchema = new mongoose.Schema({
       // referencing. 
     cookTime: { 
         type: Number,
-        min: [1],
+        min: [0],
         max: [999]
     },
-    glutenFree:{
+    glutenFree: {
         type: Boolean,
-        enum: ['T', 'F'],
-        default: 'F'
+        default: false
     }
 },
     {

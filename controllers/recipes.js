@@ -14,8 +14,10 @@ function create(req, res){
     
     RecipeModel.create(req.body)
         .then(function(dbRecipes){
-            console.log(dbRecipes);
-            res.redirect(`/recipes/${dbRecipes._id}`);
+            console.log(dbRecipes)
+            res.redirect(`/${dbRecipes._id}`);
+        }).catch((err) => {
+            console.log(err, "create func.")
         })
 
 

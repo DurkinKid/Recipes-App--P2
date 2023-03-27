@@ -52,7 +52,7 @@ app.use(function (req, res, next) {
 
 // mount all routes with appropriate base paths
 app.use('/', indexRouter);
-app.use('/', recipesRouter);
+app.use('/recipes', recipesRouter);
 
 
 
