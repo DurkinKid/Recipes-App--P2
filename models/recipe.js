@@ -10,8 +10,11 @@ const recommendationSchema = new mongoose.Schema({
         min: [0],
         max: [999]
       },
-      recDate: Date,
-      default: new Date().setFullYear(new Date().getFullYear() + 1)
+      recDate: {
+        type: Number,
+        default: function () {
+            return new Date().getFullYear()
+        }}
     },
     {
       timestamps: true,
@@ -27,7 +30,7 @@ const recipeSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    // recommendations: [recommendationSchema], // One Movie HAS MANY reviews, Using embedding in Mongoose
+    recommendations: [recommendationSchema], // One Movie HAS MANY reviews, Using embedding in Mongoose
         ingredients: String,
         instructions: String,
       // ref 'Performer' comes from the name of the Performer model

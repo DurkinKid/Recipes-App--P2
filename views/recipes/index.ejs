@@ -4,11 +4,8 @@
     <h2>Recipe Book</h2>
     <tr>
       <th>Title</th>
-      <th>Ingredients</th>
-      <th>Instructions</th>
       <th>Cook Time</th>
       <th>Gluten Free?</th>
-      <th>Critiques</th>
       <th></th>
     </tr>
   </thead>
@@ -16,8 +13,6 @@
     <% recipes.forEach(function(r) { %>
       <tr>
         <td><%= r.title %></td>
-        <td><%= r.ingredients %></td>
-        <td><%= r.instructions %></td>
         <td><%= r.cookTime %></td>
         <td><%= r.glutenFree %></td>
         <td><a href="/recipes/<%= r._id %>">Critiques</a></td>
