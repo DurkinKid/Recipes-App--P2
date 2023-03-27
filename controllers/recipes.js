@@ -15,46 +15,23 @@ function create(req, res){
     RecipeModel.create(req.body)
         .then(function(dbRecipes){
             console.log(dbRecipes)
-            res.redirect(`/${dbRecipes._id}`);
+            res.redirect(`recipes/${dbRecipes._id}`);
         }).catch((err) => {
             console.log(err, "create func.")
         })
-
-
-}
+    }
 
 
 function show(req, res) {
 	
 	RecipeModel.findById(req.params.id)
-              .populate('cast')
-			  .exec() // to execute the populate
-			  .then(function(recipeDoc){
-				console.log(recipeDoc); // <- movieDoc is the object from the database!
-                
-				// Goal: TO find all of the Performers that are not in the movies cast array
-				// 1. find the movie (movieDoc) so we know what performers are in the cast array
-				// 2. Use the PerformerModel to query the performers collection to find all the performers
-				// whose id is not in the movieDoc.cast array
-
-
-				// PerformerModel.find(
-				// 	{_id: {$nin: movieDoc.cast}} // find all the performers that are not in ($nin) the movieDoc.cast array
-				// ).then(function(performersNotInMovie){
-				// 	res.render('movies/show', { 
-				// 		movie: movieDoc, // this has the cast array, the performers in the movie
-				// 		performersNotInMovie // this is for our dropdown menu
-				// 	});
-				// })
-
-
-
-				
-			  }).catch((err) =>{
-				console.log(err);
-				res.send(err)
-			  })
-  }
+                .then(function(recipeDoc){
+                    console.log(recipeDoc)
+                    res.render('recipes/show', {
+                        recipe: recipeDoc
+                    }) 
+                })
+}
 
 
 function index(req, res){

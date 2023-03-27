@@ -1,4 +1,20 @@
 <%- include('../partials/header') %>
+<body>
+    <h1>Current Recipe</h1>
+    <section>
+        <div>Title: <%= recipe.title %></div>
+        <div>Ingredients: <%= recipe.ingredients %></div>
+        <div>Instruction: <%= recipe.instructions %></div>
+        <div>Cook Time: <%= recipe.cookTime %></div>
+        <div>Is Glute Free?: <%= recipe.glutenFree ? 'Yes' : 'No' %></div>
 
+
+    </section>
+
+
+
+
+
+</body>
 
 <%- include('../partials/footer') %>

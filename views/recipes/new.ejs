@@ -12,12 +12,15 @@
 
     <label>Cook Time - </label>
     <label>Hours: </label>
-    <input type="number" min="1" max="999">
+    <input type="number" min="0" max="999">
     <label>Mins: </label>
-    <input type="number" min="1" max="999">
+    <input type="number" min="0" max="999">
 
     <label>Gluten-Free: </label>
-    <input type="checkbox" name="glutenFree">
+    <label for="true">(T)</label>
+    <input value=true type="radio" name="glutenFree">
+    <label for="false">(F)</label>
+    <input value=false type="radio" name="glutenFree">
 
     <input type="submit" value="Add Recipe">
 </form>
