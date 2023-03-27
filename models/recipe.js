@@ -1,5 +1,24 @@
 const mongoose = require('mongoose');
 
+const recommendationSchema = new mongoose.Schema({   
+      userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true},
+      userName: String,
+      newIngred: String,
+      newInstruct: String,
+      newCookTime: {
+        type :Number,
+        min: [0],
+        max: [999]
+      },
+      recDate: Date,
+      default: new Date().setFullYear(new Date().getFullYear() + 1)
+    },
+    {
+      timestamps: true,
+    }
+  );
+
+
 const recipeSchema = new mongoose.Schema({
       // All this code is
       // mongoose Schema code,
