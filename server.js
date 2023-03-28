@@ -54,7 +54,7 @@ app.use(function (req, res, next) {
 app.use('/', indexRouter);
 app.use('/recipes', recipesRouter);
 app.use('/', recommendationsRouter);
-app.use('/recommendations', recommendationsRouter);
+
 
 
 

@@ -9,4 +9,5 @@ router.get('/new', recipesCtrl.new);
 router.get('/:id', recipesCtrl.show);
 router.post('/', isLoggedIn, recipesCtrl.create);
 
+
 module.exports = router;

@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 <body>
-    <h1>Current Recipe</h1>
+<h1>Current Recipe</h1>
     <section>
         <div>Title: <%= recipe.title %></div>
         <div>Ingredients: <%= recipe.ingredients %></div>
@@ -9,9 +9,73 @@
         <div>Is Gluten Free: <%= recipe.glutenFree ? 'Yes' : 'No' %></div>
     </section>
 
-<a href="/recommendations/new">Add a recommendation</a>
+<!-- <a href="/recommendations/new">Add a recommendation</a> -->
 
-
+<h2>Try These Recommendations</h2>
+<% if (user) { %> 
+    <form id="new-rec-form" action="/recipes/<%= recipe._id %>" method="POST">
+       
+      
+        <label>Ingredients: </label><br>
+        <textarea type="text" name="newIngred" placeholder="Ingredients" cols="30" rows="5"></textarea><br>
+      
+        <label>Instructions:</label><br>
+        <textarea type="text" name="newInstruct" placeholder="Instructions" cols="30" rows="5"></textarea><br>
+      
+        <label>Cook Time</label><br>
+        <label>Hours: </label>
+        <input type="number" min="0" max="500" name="Newhours">
+        <label>Mins: </label>
+        <input type="number" min="1" max="500" name="newMins"><br>
+      
+        <label>Gluten-Free: </label>
+        <label for="true">(T)</label>
+        <input value=true type="radio" name="isGF">
+        <label for="false">(F)</label>
+        <input value=false type="radio" name="isGF"><br>
+        <label>Date: </label>
+        <input type="datetime-local" name="recDate">
+      
+        <input type="submit" value="Submit">
+      </form>
+<% } else { %>
+<span>Please Login To Leave A Recommendation</span>
+<% } %>
+<% if (recipe.recommendations.length) { %>
+  <table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Ingredients</th>
+            <th>Instrucitons</th>
+            <th>Cook Time</th>
+            <th>GF</th>
+            <th>Date</th>
+          </tr>
+    </thead>
+    <tbody>
+      <% recipe.recommendations.forEach(function(r) { %>
+        <tr>
+          <td class="rec-user"><%= r.userName %></td>
+          <td><%= r.newIngred %></td>
+          <td><%= r.newInstruct %></td>
+          <td><%= r.newHours %><%= r.newMins %></td>
+          <td><%= r.isGF %></td>
+          <td><%= r.recDate %></td>
+          <td>
+           
+            <form method="POST" action="/recipes/<%= r._id %>?_method=DELETE">
+            <button type="submit">X</button>
+            </form>
+            
+            </td>
+        </tr>
+      <% }); %> 
+    </tbody>
+  </table>
+<% } else { %>
+  <h5>No Recommendations Yet</h5>
+<% } %>
 
 
 

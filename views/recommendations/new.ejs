@@ -1,10 +1,13 @@
-<%- include('../partials/header') %>
+<!-- <%- include('../partials/header') %>
 <h1>Your Recommendation</h1>
 
 
-<form id="new-form" action="/recipes" method="POST">
+<form id="new-form" action="/recipes/recommendations" method="POST">
   
-  <label>Submitted by: <%= recipe.userId %></label>
+  <label>Submitted by: </label>
+  <input type="text" name="userId">
+  <label>Title: </label>
+  <input type="text" name="title">
 
   <label>Ingredients: </label><br>
   <textarea type="text" name="newIngred" placeholder="Ingredients" cols="30" rows="5"></textarea><br>
@@ -23,8 +26,10 @@
   <input value=true type="radio" name="isGF">
   <label for="false">(F)</label>
   <input value=false type="radio" name="isGF"><br>
+  <label>Date: </label>
+  <input type="datetime-local" name="recDate">
 
   <input type="submit" value="Submit">
 </form>
 
-<%- include('../partials/footer') %>
+<%- include('../partials/footer') %> -->
