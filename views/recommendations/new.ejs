@@ -2,7 +2,7 @@
 <h1>Your Recommendation</h1>
 
 
-<form id="new-form" action="/recipes/recommendations" method="POST">
+<form id="new-form" action="/recipes/<%= recipeDoc._id %>" method="POST">
   
   <label>Submitted by: </label>
   <input type="text" name="userId">

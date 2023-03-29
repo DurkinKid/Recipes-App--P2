@@ -1,38 +1,29 @@
 <%- include('../partials/header') %>
 <body>
 <h1>Current Recipe</h1>
-    <section>
+    <section id="show-page">
         <div>Title: <%= recipe.title %></div>
         <div>Ingredients: <%= recipe.ingredients %></div>
         <div>Instructions: <%= recipe.instructions %></div>
-        <div>Cook Time: (hrs): <%= recipe.hours %> (mins): <%= recipe.mins %></div>
+        <div>Cook Time: <%= recipe.hours %> hour & <%= recipe.mins %> minutes</div>
         <div>Is Gluten Free: <%= recipe.glutenFree ? 'Yes' : 'No' %></div>
     </section>
 
 
 
-<h2>Try These Recommendations</h2>
+
 <% if (user) { %> 
-    <form id="new-rec-form" action="/recipes/<%= recipe._id %>" method="POST">
-       
-      
+    <h2>Add a Twist</h2>
+    <form id="add-rec-form" action="/recipes/<%= recipe._id %>" method="POST">
         <label>Ingredients: </label><br>
-        <textarea type="text" name="newIngred" placeholder="Ingredients" cols="30" rows="5"></textarea><br>
-      
+        <textarea type="text" name="newIngred" placeholder="Ingredients" cols="30" rows="5"></textarea>
         <label>Instructions:</label><br>
-        <textarea type="text" name="newInstruct" placeholder="Instructions" cols="30" rows="5"></textarea><br>
-      
-        <label>Cook Time</label><br>
-        <label>Hours: </label>
-        <input type="number" min="0" max="500" name="Newhours">
-        <label>Mins: </label>
-        <input type="number" min="1" max="500" name="newMins"><br>
-      
+        <textarea type="text" name="newInstruct" placeholder="Instructions" cols="30" rows="5"></textarea>
         <label>Gluten-Free: </label>
         <label for="true">(T)</label>
         <input value=true type="radio" name="isGF">
         <label for="false">(F)</label>
-        <input value=false type="radio" name="isGF"><br>
+        <input value=false type="radio" name="isGF">
         <label>Date: </label>
         <input type="datetime-local" name="recDate">
       
@@ -43,14 +34,13 @@
 <span>Please Login To Leave A Recommendation</span>
 <% } %>
 <% if (recipe.recommendations.length) { %>
+    <h2>Try Something New!</h2>
   <table>
     <thead>
         <tr>
             <th>Critic</th>
-            <th>Title</th>
             <th>Ingredients</th>
-            <th>Instrucitons</th>
-            <th>Cook Time</th>
+            <th>Instructions</th>
             <th>GF</th>
             <th>Date</th>
           </tr>
@@ -58,18 +48,17 @@
     <tbody>
       <% recipe.recommendations.forEach(function(recommendation) { %>
         <tr>
-          <td class="rec-user"><%= recommendation.userName %></td>
-          <td><%= recommendation.title %></td>
+          <td><%= recommendation.userName %></td>
           <td><%= recommendation.newIngred %></td>
           <td><%= recommendation.newInstruct %></td>
-          <td><%= recommendation.newHours %><%= recommendation.newMins %></td>
           <td><%= recommendation.isGF %></td>
-          <td><%= recommendation.recDate %></td>
+          <td><%= recommendation.recDate.toLocaleDateString() %></td>
           <td>
-        <%= recommendation.text %><br>
+        <%= recommendation.text %>
         <% if (user && recommendation.userId.equals(user._id)) { %>
             <form method="POST" action="/recommendations/<%= recommendation._id %>?_method=DELETE">
-            <button type="submit">X</button>
+            <button type="submit">Remove</button>
+          </td> 
             </form>
         <% } %>
           </td>

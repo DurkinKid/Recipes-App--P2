@@ -13,6 +13,15 @@ body {
     "main"
 }
 
+body > nav {
+  grid-area: nav;
+  background-color: #B8C0C2;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 20px 0 30px;
+}
+
 body > main {
   grid-area: main;
   display: flex;
@@ -22,27 +31,50 @@ body > main {
   padding: 20px;
   overflow-y: scroll;
 }
+
+body > main h1:first-child {
+  margin-bottom: 50px;
+}
+
+nav {
+  display: flex;
+  grid-area: nav;
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO7-SX0fKMH4eXDNbHlWwVDVsQ8BExPe_XnGrz4Qo5AQ&usqp=CAU&ec=48665699);
+  background-size: cover;
+}
+
 nav > a {
   color: #E8ECEB;
   text-decoration: none;
   letter-spacing: 2px;
+  padding: 5px;
+  border-radius: 10px;
+  margin: 20px;
 }
 
- nav {
-  display: flex;
-  grid-area: nav;
-  
-  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO7-SX0fKMH4eXDNbHlWwVDVsQ8BExPe_XnGrz4Qo5AQ&usqp=CAU&ec=48665699);
-  background-size: cover;
+nav > a:hover {
+  background-color: beige;
+  color: black;
+}
+
+
+#show-page {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1rem;
   
 }
 
-/* table {
+#show-page div:nth-child() {
+  font-weight: bold;
+}
+
+table {
   font-size: 20px;
 }
 
 table thead th {
-  padding: 15px;
+  padding: 10px;
   border-bottom: 2px solid #424748;
 }
 
@@ -51,12 +83,38 @@ table td {
   text-align: center;
 }
 
+#new-form {
+  display: grid;
+  grid-template-rows: auto, auto;
+}
 
-#new-rec-form {
+
+
+/* 
+#new-form *,  #add-rec-form * {
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 5px;
+} */
+
+/* #new-form input[type="submit"] {
+  grid-column: span 2;
+  width: 10rem;
+  margin-left: auto;
+} */
+
+#add-rec-form {
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 1rem;
-} */
+}
+
+#add-rec-form input[type="submit"] {
+  width: 8rem;
+  grid-column: 2 / 3;
+  margin-bottom: 2rem;
+}
+
 
 .login {
   margin-left: auto;

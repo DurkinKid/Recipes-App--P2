@@ -18,8 +18,10 @@
         <td><%= r.glutenFree %></td>
         <td><%= r.date.toLocaleDateString() %></td>
         <td><a href="/recipes/<%= r._id %>">Details</a></td>
-        <td><a href="/recipes/<%= r._id %>/edit">Edit</a></td>
-      </tr>
+        <% if (user) { %>
+            <td><a href="/recipes/<%= r._id %>/edit">Edit</a></td>
+        <% } %>
+        </tr>
       <% }); %>
     </tbody>
   </table>

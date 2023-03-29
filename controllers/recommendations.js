@@ -1,3 +1,4 @@
+const recipe = require('../models/recipe');
 const RecipeModel = require('../models/recipe');
 
 
@@ -43,7 +44,7 @@ function create(req, res){
 
              recipeDoc.save()
             .then(function(){
-                res.redirect(`/recipes`)
+                res.redirect(`/recipes/${recipeDoc.id}`)
             })
         }).catch(err =>{
             console.log(err, "rec error");
@@ -52,6 +53,6 @@ function create(req, res){
 }
 
 function newRec(req, res){
-    // const rec = RecommendationModel.findById(req.params.id)
+    
     res.render('recommendations/new')
 }
