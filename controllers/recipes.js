@@ -6,10 +6,16 @@ module.exports = {
     new: newRecipe,
     index,
     show,
-    create
+    create,
+    edit
 }
 
-
+async function edit(req, res) {
+    const recipe = await RecipeModel.findOne({_id: req.params.id});
+    console.log(recipe);
+    if (!recipe) return res.redirect('/recipes');
+    res.render('recipes/edit', { recipe });
+  }
 
 function create(req, res){
     console.log(req.body)

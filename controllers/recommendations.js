@@ -1,25 +1,30 @@
-const RecommendationModel = require('../models/recipe');
+const RecipeModel = require('../models/recipe');
+
 
 module.exports = {
     new: newRec,
     create,
-    delete: deleteOne
+    delete: deleteRec
 }
 
-function deleteOne(req, res){
+function deleteRec(req, res){
+
     RecipeModel.findOne({
-        'recipes._id': req.params.id, 
-        'recipes.userId': req.user._id
+        'recommendations._id': req.params.id, 
+        'recommendations.userId': req.user._id
+        
     }).then(function(recipeDoc){
-        if(!recipeDoc) return res.redirect('/recipes');
+        console.log(recipeDoc);
+        if(!recipeDoc) return res.redirect(`/recipes/${recipeDoc._id}`);
 
 
-        recipeDoc.recipes.remove(req.params.id);
+        recipeDoc.recommendations.remove(req.params.id);
 
         recipeDoc.save().then(function(){
-            res.redirect('/recipes/')
+            res.redirect(`/recipes/${recipeDoc._id}`)
         })
     }).catch(err => {
+        console.log(err);
         res.send(err);
     })
 }
@@ -27,7 +32,7 @@ function deleteOne(req, res){
 
 function create(req, res){
     console.log(req.body)
-    RecommendationModel.findById(req.params.id)
+    RecipeModel.findById(req.params.id)
         .then(function(recipeDoc){
             console.log(recipeDoc, "This is the recipe doc")
             req.body.userId = req.user._id
@@ -38,7 +43,7 @@ function create(req, res){
 
              recipeDoc.save()
             .then(function(){
-                res.redirect(`/recipes/${req.params.id}`)
+                res.redirect(`/recipes`)
             })
         }).catch(err =>{
             console.log(err, "rec error");

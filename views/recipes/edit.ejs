@@ -1,0 +1,30 @@
+<%- include('../partials/header') %>
+<h1>Edit Your Recipe</h1>
+
+<form id="new-form" action="/recipes" method="POST">
+    <label>Title: </label>
+    <input type="text" name="title"><br>
+
+    <label>Ingredients: </label><br>
+    <textarea type="text" name="ingredients" placeholder="Ingredients" cols="30" rows="5"></textarea><br>
+
+    <label>Instructions:</label><br>
+    <textarea type="text" name="instructions" placeholder="Instructions" cols="30" rows="5"></textarea><br>
+
+    <label>Cook Time</label><br>
+    <label>Hours: </label>
+    <input type="number" min="0" max="500" name="hours">
+    <label>Mins: </label>
+    <input type="number" min="1" max="500" name="mins"><br>
+
+    <label>Gluten-Free: </label>
+    <label for="true">(T)</label>
+    <input value=true type="radio" name="glutenFree">
+    <label for="false">(F)</label>
+    <input value=false type="radio" name="glutenFree"><br>
+
+    <input type="submit" value="Accept">
+</form>
+
+
+<%- include('../partials/footer') %>

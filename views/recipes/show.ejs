@@ -9,7 +9,7 @@
         <div>Is Gluten Free: <%= recipe.glutenFree ? 'Yes' : 'No' %></div>
     </section>
 
-<!-- <a href="/recommendations/new">Add a recommendation</a> -->
+
 
 <h2>Try These Recommendations</h2>
 <% if (user) { %> 
@@ -37,14 +37,16 @@
         <input type="datetime-local" name="recDate">
       
         <input type="submit" value="Submit">
-      </form>
+        </form>
 <% } else { %>
+
 <span>Please Login To Leave A Recommendation</span>
 <% } %>
 <% if (recipe.recommendations.length) { %>
   <table>
     <thead>
         <tr>
+            <th>Critic</th>
             <th>Title</th>
             <th>Ingredients</th>
             <th>Instrucitons</th>
@@ -54,23 +56,26 @@
           </tr>
     </thead>
     <tbody>
-      <% recipe.recommendations.forEach(function(r) { %>
+      <% recipe.recommendations.forEach(function(recommendation) { %>
         <tr>
-          <td class="rec-user"><%= r.userName %></td>
-          <td><%= r.newIngred %></td>
-          <td><%= r.newInstruct %></td>
-          <td><%= r.newHours %><%= r.newMins %></td>
-          <td><%= r.isGF %></td>
-          <td><%= r.recDate %></td>
+          <td class="rec-user"><%= recommendation.userName %></td>
+          <td><%= recommendation.title %></td>
+          <td><%= recommendation.newIngred %></td>
+          <td><%= recommendation.newInstruct %></td>
+          <td><%= recommendation.newHours %><%= recommendation.newMins %></td>
+          <td><%= recommendation.isGF %></td>
+          <td><%= recommendation.recDate %></td>
           <td>
-           
-            <form method="POST" action="/recipes/<%= r._id %>?_method=DELETE">
+        <%= recommendation.text %><br>
+        <% if (user && recommendation.userId.equals(user._id)) { %>
+            <form method="POST" action="/recommendations/<%= recommendation._id %>?_method=DELETE">
             <button type="submit">X</button>
             </form>
-            
-            </td>
+        <% } %>
+          </td>
         </tr>
       <% }); %> 
+      
     </tbody>
   </table>
 <% } else { %>
