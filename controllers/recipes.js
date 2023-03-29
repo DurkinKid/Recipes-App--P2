@@ -7,8 +7,26 @@ module.exports = {
     index,
     show,
     create,
-    edit
+    edit,
+    update
 }
+
+async function update(req, res) {
+    try {
+      const recipe = await RecipeModel.findOneAndUpdate(
+        {_id: req.params.id},
+        // update object with updated properties
+        req.body,
+        // options object {new: true} returns updated doc
+        {new: true}
+        
+      );
+      return res.redirect(`/recipes/${recipe._id}`);
+    } catch (e) {
+      console.log(e.message);
+      return res.redirect('/recipes');
+    }
+  }
 
 async function edit(req, res) {
     const recipe = await RecipeModel.findOne({_id: req.params.id});

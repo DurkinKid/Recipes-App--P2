@@ -1,10 +1,9 @@
 <%- include('../partials/header') %>
 <h1>Edit Your Recipe</h1>
 
-<form id="new-form" action="/recipes" method="POST">
-    <label>Title: </label>
-    <input type="text" name="title"><br>
-
+<form id="edit-form" action="/recipes/<%= recipe._id %>?_method=PUT" method="POST">
+    
+    
     <label>Ingredients: </label><br>
     <textarea type="text" name="ingredients" placeholder="Ingredients" cols="30" rows="5"></textarea><br>
 
