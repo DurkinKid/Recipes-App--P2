@@ -1,19 +1,22 @@
-const mongoose = require('mongoose');
-// All of this code is from the Mongoose DOCS!
+const mongoose = require("mongoose");
 
-// /movies is the name of the database, you want 
-// to connect to in mongodb, or the name of the database
-// you want to create in mongodb 
-mongoose.connect('mongodb://127.0.0.1/recipes', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+// export the function that creates a database connection
+module.exports = {
+  connectDB,
+};
 
-const db = mongoose.connection;
+async function connectDB() {
+  try {
+    const conn = await mongoose.connect(process.env.DATABASE_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
 
-// event listener that fires when 
-// our express app has created a connection the mongodb
-// database running on our computer
-db.on('connected', function() {
-  console.log(`Connected to MongoDB at ${db.host}:${db.port}`);
-});
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
+
+  } catch (err) {
+    console.log("err");
+    console.log(err, ' connecting to mongodb')
+    process.exit(1);
+  }
+}
