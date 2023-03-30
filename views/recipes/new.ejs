@@ -5,22 +5,23 @@
     <input type="text" name="title">
 
     <label>Ingredients: </label>
-    <textarea type="text" name="ingredients" placeholder="Ingredients" cols="30" rows="5"></textarea><br>
+    <textarea type="text" name="ingredients" placeholder="Ingredients"></textarea><br>
 
     <label>Instructions:</label>
-    <textarea type="text" name="instructions" placeholder="Instructions" cols="30" rows="5"></textarea><br>
+    <textarea type="text" name="instructions" placeholder="Instructions"></textarea><br>
 
-    <label>Cook Time</label><br>
+    <label>Cook Time</label>
     <label>Hours: </label>
     <input type="number" min="0" max="500" name="hours">
     <label>Mins: </label>
     <input type="number" min="1" max="500" name="mins">
 
-    <label>Gluten-Free: </label>
+    <label>Gluten-Free: 
     <label for="true">(T)</label>
     <input value=true type="radio" name="glutenFree">
     <label for="false">(F)</label>
     <input value=false type="radio" name="glutenFree">
+    </label>
 
     <input type="submit" value="Add Recipe">
 </form>

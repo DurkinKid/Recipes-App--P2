@@ -15,18 +15,14 @@
 <% if (user) { %> 
     <h2>Add a Twist</h2>
     <form id="add-rec-form" action="/recipes/<%= recipe._id %>" method="POST">
-        <label>Ingredients: </label><br>
-        <textarea type="text" name="newIngred" placeholder="Ingredients" cols="30" rows="5"></textarea>
-        <label>Instructions:</label><br>
-        <textarea type="text" name="newInstruct" placeholder="Instructions" cols="30" rows="5"></textarea>
-        <label>Gluten-Free: </label>
-        <label for="true">(T)</label>
-        <input value=true type="radio" name="isGF">
-        <label for="false">(F)</label>
-        <input value=false type="radio" name="isGF">
-        <label>Date: </label>
+        <label>Ingredients</label>
+        <textarea type="text" name="newIngred" placeholder="Ingredients"></textarea>
+        <label>Instructions</label>
+        <textarea type="text" name="newInstruct" placeholder="Instructions"></textarea>
+        <label>Gluten-Free
+        <input type="radio" name="isGF">
+        <label>Date</label>
         <input type="datetime-local" name="recDate">
-      
         <input type="submit" value="Submit">
         </form>
 <% } else { %>

@@ -57,12 +57,107 @@ nav > a:hover {
   color: black;
 }
 
+.slide-show {
+  display: flex;
+  width: 1170px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.box {
+  overflow: hidden;
+  position: relative;
+  margin: 0 10px;
+}
+
+.box:hover .pic1{
+  filter: blur(20px);
+  transform: scale(1.1);
+  opacity: 0;
+}
+
+.box:hover .pic2{
+  filter: blur(0);
+  transform: scale(1);
+  opacity: 1;
+}
+
+.box:hover .pic3{
+  filter: blur(20px);
+  transform: scale(1.1);
+  opacity: 0;
+}
+
+.box:hover .pic4{
+  filter: blur(0);
+  transform: scale(1);
+  opacity: 1;
+}
+
+.box:hover .pic5{
+  filter: blur(20px);
+  transform: scale(1.1);
+  opacity: 0;
+}
+
+.box:hover .pic6{
+  filter: blur(0);
+  transform: scale(1);
+  opacity: 1;
+}
+
+.pic1 {
+  position: absolute;
+  z-index: 2;
+  transition: .5s;
+  transform-origin: 50%, 50%;
+  width: 100%;
+}
+
+.pic2 {
+  filter: blur(20px);
+  transform: scale(1.1);
+  opacity: 1;
+  transition: .5s;
+  width: 100%;
+}
+
+.pic3 {
+  position: absolute;
+  z-index: 2;
+  transition: .5s;
+  transform-origin: 50%, 50%;
+  width: 100%;
+}
+
+.pic4 {
+  transform: scale(1.1);
+  opacity: 1;
+  transition: .5s;
+  width: 100%;
+}
+
+.pic5 {
+  position: absolute;
+  z-index: 2;
+  transition: .5s;
+  transform-origin: 50%, 50%;
+  width: 100%;
+}
+
+.pic6 {
+  transform: scale(1.1);
+  opacity: 1;
+  transition: .5s;
+  width: 100%;
+}
+
+
 
 #show-page {
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 1rem;
-  
 }
 
 #show-page div:nth-child() {
@@ -83,37 +178,39 @@ table td {
   text-align: center;
 }
 
-#new-form {
+
+#edit-form {
   display: grid;
   grid-template-rows: auto, auto;
 }
 
 
 
-/* 
+
 #new-form *,  #add-rec-form * {
   font-size: 20px;
   padding: 5px;
   border-radius: 5px;
-} */
+}
 
-/* #new-form input[type="submit"] {
+#new-form input[type="submit"] {
   grid-column: span 2;
   width: 10rem;
   margin-left: auto;
-} */
+}
 
 #add-rec-form {
   display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 1rem;
+  grid-template-columns: auto;
+  grid-gap: .5rem;
 }
 
-#add-rec-form input[type="submit"] {
-  width: 8rem;
-  grid-column: 2 / 3;
-  margin-bottom: 2rem;
-}
+/* #add-rec-form input[type="submit"] {
+  width: 20rem;
+  grid-column: 1;
+  margin-left: auto;
+} */
+
 
 
 .login {
@@ -156,11 +253,11 @@ table td {
 } */
 
 
-/* #text-area{
+text-area{
   display: list-item;
   outline: none;
 }
 
-#text-area select{
+text-area select{
   display: list-item;
-} */
+}
