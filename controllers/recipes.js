@@ -54,8 +54,7 @@ function show(req, res) {
                 .then(function(recipeDoc){
                     console.log(recipeDoc)
                     res.render('recipes/show', {
-                        recipe: recipeDoc
-                    }) 
+                        recipe: recipeDoc}) 
                 })
 }
 
