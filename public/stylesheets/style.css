@@ -180,29 +180,21 @@ table td {
 
 
 #edit-form {
-  display: grid;
-  grid-template-rows: auto, auto;
+  display: flex;
+  flex-direction: column;
 }
 
 
 
 
-#new-form *,  #add-rec-form * {
-  font-size: 20px;
-  padding: 5px;
-  border-radius: 5px;
-}
-
-#new-form input[type="submit"] {
-  grid-column: span 2;
-  width: 10rem;
-  margin-left: auto;
+#new-form {
+  display: flex;
+  flex-direction: column;
 }
 
 #add-rec-form {
-  display: grid;
-  grid-template-columns: auto;
-  grid-gap: .5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 /* #add-rec-form input[type="submit"] {

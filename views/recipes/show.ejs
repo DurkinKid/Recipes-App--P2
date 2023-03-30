@@ -20,8 +20,9 @@
         <label>Instructions</label>
         <textarea type="text" name="newInstruct" placeholder="Instructions"></textarea>
         <label>Gluten-Free
-        <input value=true type="radio" name="isGF">
-        <input value=false type="radio" name="isGF">
+        <input value=true type="radio" name="isGF">(T)
+        <input value=false type="radio" name="isGF">(F)
+        </label>
         <label>Date</label>
         <input type="datetime-local" name="recDate">
         <input type="submit" value="Submit">
@@ -50,17 +51,16 @@
           <td><%= recommendation.newIngred %></td>
           <td><%= recommendation.newInstruct %></td>
           <td><%= recommendation.isGF %></td>
-          <td><%= recommendation.recDate. %></td>
-          
+          <td><%= recommendation.recDate %></td>
           <td>
         <% if (user && recommendation.userId.equals(user._id)) { %>
             <form method="POST" action="/recommendations/<%= recommendation._id %>?_method=DELETE">
             <button type="submit">Remove</button>
         </form>
-        <% }} %>
+        <% } %>
           </td> 
         </tr>
-        <% ) %>
+        <% }) %>
         </tbody>
     </table>
 <% } else { %>

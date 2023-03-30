@@ -18,7 +18,7 @@ const recommendationSchema = new mongoose.Schema({
       isGF: Boolean,
       recDate: {
         type: Date,
-        default: new Date().setFullYear(new Date().getFullYear() + 1)
+        default: new Date().setFullYear(new Date().getFullYear())
     }},
     {
       timestamps: true
@@ -48,7 +48,7 @@ const recipeSchema = new mongoose.Schema({
     glutenFree: Boolean,
     date: {
         type: Date,
-        default: new Date().setFullYear(new Date().getFullYear() + 1)
+        default: new Date().setFullYear(new Date().getFullYear())
     }
 },
     {
