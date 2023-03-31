@@ -1,6 +1,7 @@
 * {
   font-family: Georgia, 'Times New Roman', Times, serif;
   box-sizing: border-box;
+  
 }
 
 body {
@@ -10,12 +11,12 @@ body {
   grid-template-rows: 75px 1fr;
   grid-template-areas:
     "nav"
-    "main"
+    "main";
 }
 
 body > nav {
   grid-area: nav;
-  background-color: #B8C0C2;
+  background-color: #dfc49c;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -30,6 +31,7 @@ body > main {
   background-color: #E8ECEB;
   padding: 20px;
   overflow-y: scroll;
+  background-color: antiquewhite;
 }
 
 body > main h1:first-child {
@@ -39,8 +41,7 @@ body > main h1:first-child {
 nav {
   display: flex;
   grid-area: nav;
-  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO7-SX0fKMH4eXDNbHlWwVDVsQ8BExPe_XnGrz4Qo5AQ&usqp=CAU&ec=48665699);
-  background-size: cover;
+  
 }
 
 nav > a {
@@ -205,17 +206,12 @@ table td {
 
 
 
-.login {
-  margin-left: auto;
-}
+
 
 .login img {
   height: 70px;
 }
 
-.logout {
-  margin-left: auto;
-}
 
 
 
@@ -223,33 +219,5 @@ table td {
 
 
 
-/* .brand-logo {
-  margin-left: 15px;
-}
-
-.card .card-content .card-title {
-  margin-bottom: 10px;
-}
-
-#search-row form {
-  padding-top: 20px;
-}
-
-.student-name {
-  position: relative;
-  top: -5px;
-}
-
-.collection-item form {
-  margin-top: -5px;
-} */
 
 
-/* text-area{
-  display: list-item;
-  outline: none;
-}
-
-text-area select{
-  display: list-item;
-} */
