@@ -21,3 +21,5 @@ https://navy-blue-hare-shoe.cyclic.app
 Add user profile page with user specific recipes, recommendations, ratings, and favorite dishes.
 Add ability to upload picture to add to recipe description.
 Add more interactive CSS transitions on clickables and hoverables.
+
+Adjust section table structure
