@@ -5,7 +5,7 @@ HTML, CSS, javaScript, mongoDB, mongoose, express, node, MAC, Atlas, Cyclic
 
 
 ## Screen Shots
- <img src="public/images/trello.png" alt="fucksafekes">
+ <img src="images/trello.png" alt="fucksafekes">
  <img src="public/images/ERD.png" alt="">
  <img src="public/images/homePage.png" alt="">
  <img src="public/images/recipeIndex.png" alt="">
